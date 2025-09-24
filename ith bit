@@ -1,0 +1,6 @@
+n=int(input("enter n value"))
+i=int(input("enter i value"))
+mask==1<<i
+mask=~mask
+res=n&mask
+print(res)
