@@ -1,0 +1,14 @@
+def maxscore(cardpoints,k):
+    n=len(cardpoints)
+    wsize=n-k
+    wsum=sum(cardpoints[:wsize])
+    mins=wsum
+    if k==n:
+        return sum(cardpoints)
+    for i in range(wsize,n):
+        wsum+=cardpoints[i]-cardpoints[i-wsize]
+        mins=min(mins,wsum)
+    return sum(cardpoints)-mins
+cardpoints=list(map(int,input().split()))
+k=int(input())
+print(maxscore(cardpoints,k))
