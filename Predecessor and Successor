@@ -1,0 +1,29 @@
+class Solution:
+    def findPreSuc(self, root, key):
+            
+            p = s = None
+            
+            while root:
+                
+                if root.data > key:
+                    s = root
+                    root = root.left 
+                elif root.data < key:
+                    p = root
+                    root = root.right 
+                else:
+                    
+                    if root.left:
+                        cur = root.left 
+                        
+                        while cur.right:
+                            cur = cur.right
+                        p = cur 
+                    
+                    if root.right:
+                        cur = root.right
+                        while cur.left:
+                            cur = cur.left 
+                        s = cur 
+                    break
+            return [p , s]
